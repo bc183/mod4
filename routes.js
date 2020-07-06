@@ -34,10 +34,17 @@
       })
     
       // Item detail
-      .state('mainList.itemDetail', {
+      .state('itemDetail', {
         url: '/item-detail/{itemId}',
         templateUrl: 'templates/items.html',
-        controller: 'ItemController as itemDetail'  
+        controller: 'ItemController as itemDetail',
+        resolve : {
+          items : ['$stateParams',"MenuDataService",function($stateParams,MenuDataService){
+            return MenuDataService.getAllCategories().then(function(res){
+              return res.data;
+            });
+          }]
+        }  
       });
     
     }

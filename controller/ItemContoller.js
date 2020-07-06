@@ -8,8 +8,8 @@
     ItemController.$inject = ['$stateParams', 'items'];
     function ItemController($stateParams, items) {
       var itemDetail = this;
-      console.log(items.data[$stateParams.itemId]);
-      itemDetail.item = items.data[$stateParams.itemId];
+      //console.log([$stateParams.itemId]);
+      itemDetail.item = items[$stateParams.itemId];
       console.log(itemDetail.item); 
     }
     })();
